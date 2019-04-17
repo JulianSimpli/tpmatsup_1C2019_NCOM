@@ -22,7 +22,7 @@ function varargout = OpBasicas(varargin)
 
 % Edit the above text to modify the response to help OpBasicas
 
-% Last Modified by GUIDE v2.5 15-Apr-2019 21:30:10
+% Last Modified by GUIDE v2.5 16-Apr-2019 23:30:44
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -314,3 +314,12 @@ function txt_b1_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in btn_volver.
+function btn_volver_Callback(hObject, eventdata, handles)
+% hObject    handle to btn_volver (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+    close(OpBasicas);
+    Menu;
