@@ -15,8 +15,8 @@ function varargout = EDT(varargin)
 %      unrecognized property name or invalid value makes property application
 %      stop.  All inputs are passed to EDT_OpeningFcn via varargin.
 %
-%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
-%      instance to run (singleton)".
+%      *See GUI Options on GUIDE's Tools menu.  Choose 'GUI allows only one
+%      instance to run (singleton)'.
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES
 
@@ -143,10 +143,10 @@ function [ b1,b2,tipo,err ] = validacion(a)
 %   es valido el ingreso de dato y seccionado
 len=strlength(a);
 
-if (a(1)=='(' && a(len)==')' && count(a,",")==1 && count(a,"(")==1 && count(a,")")==1)
-        binomica=erase(a,"(");
-        binomica=erase(binomica,")");
-        binomica_separado=strsplit(binomica,",");
+if (a(1)=='(' && a(len)==')' && count(a,',')==1 && count(a,'(')==1 && count(a,')')==1)
+        binomica=erase(a,'(');
+        binomica=erase(binomica,')');
+        binomica_separado=strsplit(binomica,',');
         [real,realer]=str2num(binomica_separado{1});
         [img,imger]=str2num(binomica_separado{2});
         if(realer==1&&imger==1)
@@ -162,11 +162,11 @@ if (a(1)=='(' && a(len)==')' && count(a,",")==1 && count(a,"(")==1 && count(a,")
             err=0;
         end
         
-       elseif (a(1)=='[' && a(len)==']' && count(a,";")==1 && count(a,"[")==1 && count(a,"]")==1)
+       elseif (a(1)=='[' && a(len)==']' && count(a,';')==1 && count(a,'[')==1 && count(a,']')==1)
 
-        polar=erase(a,"[");
-        polar=erase(polar,"]");
-        polar_separado=strsplit(polar,";");
+        polar=erase(a,'[');
+        polar=erase(polar,']');
+        polar_separado=strsplit(polar,';');
         [mod,moder]=str2num(polar_separado{1});
         [ang,anger]=str2num(polar_separado{2});
         if(moder==1&&anger==1 && mod>=0)
@@ -195,9 +195,9 @@ function [ c ] = concatcomplex( b1,b2,tipo )
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
     if (tipo==0)
-        c=strcat("[",num2str(b1),";",num2str(b2),"]");
+        c=strcat('[',num2str(b1),';',num2str(b2),']');
     elseif (tipo==1)
-        c=strcat("(",num2str(b1),",",num2str(b2),")");
+        c=strcat('(',num2str(b1),',',num2str(b2),')');
     end
 function edConvertido_Callback(hObject, eventdata, handles)
 % hObject    handle to edConvertido (see GCBO)
