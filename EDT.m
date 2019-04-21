@@ -141,7 +141,7 @@ function [ b1,b2,tipo,err ] = validacion(a)
 %UNTITLED Summary of this function goes here
 %   se la pasa un string y devuelve que tipo de valor polar o binomica, si
 %   es valido el ingreso de dato y seccionado
-len=strlength(a);
+len = strlength(a);
 
 if (a(1)=='(' && a(len)==')' && count(a,',')==1 && count(a,'(')==1 && count(a,')')==1)
         binomica=erase(a,'(');
