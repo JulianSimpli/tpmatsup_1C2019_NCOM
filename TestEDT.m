@@ -1,67 +1,43 @@
 %test numeros complejos
 function algo = TestEDT()
 
+strParordenado = '(5,45)';
+strNoComplejo = '(4.4.4;5)';
+strPolar = '[-8;5.3]';
+strBinomica = '8-4.5j';
+strOtroNoComplejo = '78';
 
-function [ mod,ang ] = parOrd2pol( real,img )
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
-    mod=sqrt(real^2+img^2);
-    ang_=atan(img/real);
-    if(real>0 && img>0)
-       ang=ang_;
-    elseif(real>0 && img<0)
-       ang=ang_+2*pi;
-    else
-       ang=ang_+pi;
-    end        
-end
+fprintf('test de validacion e instancias de numero complejo.\n');
+fprintf('Cuando se crean las instancias se asignan parametros\n');
+fprintf('Se procede a crear numero complejo con string de entrada:8-4.5j\n');
+fprintf('Resultado esperado: se crea la instancia\n');
+c=NumeroComplejo(strBinomica)
+clear c
 
-function [ mod,ang ] = bin2pol( complejo)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
-nreal = real(complejo);
-nimg = img(complejo);
-    mod=sqrt(nreal^2+nimg^2);
-    ang_=atan(nimg/nreal);
-    if(nreal>0 && nimg>0)
-       ang=ang_;
-    elseif(nreal>0 && nimg<0)
-       ang=ang_+2*pi;
-    else
-       ang=ang_+pi;
-    end        
-end
+fprintf('Se procede a crear numero complejo con string de entrada:(5,45)\n');
+fprintf('Resultado esperado: se crea la instancia\n');
+c=NumeroComplejo(strParordenado)
+clear c
 
-function [ real,img,err ] = pol2parOrd( mod,ang )
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
-    if (mod>=0)
-        real=mod*cos(ang);
-        img=mod*sin(ang);
-        err=1;
-    else
-        err=0;
-    end
-end
+fprintf('Se procede a crear numero complejo con string de entrada:[-8;5.3]\n');
+fprintf('Resultado esperado: se crea la instancia\n');
+c=NumeroComplejo(strPolar)
+clear c
 
-    function complejo = valida(str)
-       L = length(str); 
-  %     if(L>0)
-           %ver si esta en forma de par ordenado
-           k=0;
-           k = strfind(str,';');
-          % if()
-    end
+fprintf('Se procede a crear numero complejo con string de entrada:(4.4.4;5)\n');
+fprintf('Resultado esperado:da error "no es un numero complejo".\n\n');
+c=NumeroComplejo(strNoComplejo)
+clear c
 
-%[x,y]=bin2poli(2,3);
-a= input('ingrese dato');
-fprintf('numero ingresado %i\n',a);
-%fprintf('angulo %g\n',y);
-e1='3t';
-e2= '2+3i';
-fprintf('parte imaginaria %g\n',imag(2+3i));
-%fprintf('parte imaginaria %g\n',imag(e1));
-fprintf('parte imaginaria %g\n',imag(e2));
+fprintf('Se procede a crear numero complejo con string de entrada: 78\n');
+fprintf('Resultado esperado:da error "no es un numero complejo".\n\n');
+c=NumeroComplejo(strOtroNoComplejo)
+clear c
+
+fprintf('Se procede a crear numero complejo con numero de entrada: 50\n');
+fprintf('Resultado esperado:da error "no ingreso parametro, o ingreso un parametro que no es string".\n\n');
+c=NumeroComplejo(50)
+clear c
 
 end
 
