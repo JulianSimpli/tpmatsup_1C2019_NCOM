@@ -151,7 +151,7 @@ classdef NumeroComplejo<handle
                     obj.FormPolar_fi = ang;
                     obj.FormPolar_string=strcat('[',(num2str(mod) ),';', num2str(ang), ']');
                     obj.AnguloGrados= round(ang*180/pi);
-                    conjugado(obj,obj.FormBinomica_real,obj.FormBinomica_img);
+                    obj.Conjugado_string= conjugado(obj,obj.FormBinomica_real,obj.FormBinomica_img);
                 end
                 if(obj.TipoInicial==0)
                     disp('no es un numero complejo');
