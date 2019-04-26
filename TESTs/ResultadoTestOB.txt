@@ -156,4 +156,54 @@ c =
               AnguloGrados: 296
                TipoInicial: 1
 
+Se crean dos numeros complejos y luego se restan.
+
+a = 
+
+  NumeroComplejo with properties:
+
+         FormBinomica_real: 15
+          FormBinomica_img: 10
+              FormPolar_ro: 18.0278
+              FormPolar_fi: 0.5880
+       FormBinomica_string: '15+10j'
+          FormPolar_string: '[18.0278;0.588]'
+    FormParOrdenado_string: '(15,10)'
+          Conjugado_string: '15-10j'
+              AnguloGrados: 34
+               TipoInicial: 3
+
+
+b = 
+
+  NumeroComplejo with properties:
+
+         FormBinomica_real: 8
+          FormBinomica_img: 16
+              FormPolar_ro: 17.8885
+              FormPolar_fi: 1.1071
+       FormBinomica_string: '8+16j'
+          FormPolar_string: '[17.8885;1.1071]'
+    FormParOrdenado_string: '(8,16)'
+          Conjugado_string: '8-16j'
+              AnguloGrados: 63
+               TipoInicial: 1
+
+El resultado será otro numero complejo.
+
+c = 
+
+  NumeroComplejo with properties:
+
+         FormBinomica_real: 7
+          FormBinomica_img: -6
+              FormPolar_ro: 9.2195
+              FormPolar_fi: 5.5746
+       FormBinomica_string: '7-6j'
+          FormPolar_string: '[9.2195;5.5746]'
+    FormParOrdenado_string: '(7,-6)'
+          Conjugado_string: '7+6j'
+              AnguloGrados: 319
+               TipoInicial: 1
+
 >> 

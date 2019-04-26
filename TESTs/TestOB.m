@@ -17,4 +17,14 @@ op=Operaciones;
 fprintf('El resultado será otro numero complejo.\n');
 c=suma(op,a,b)
 clear a b c;
+
+fprintf('Se crean dos numeros complejos y luego se restan.\n');
+
+a = NumeroComplejo('15+10j')
+b= NumeroComplejo('(8,16)')
+op=Operaciones;
+fprintf('El resultado será otro numero complejo.\n');
+c=resta(op,a,b)
+clear a b c;
+
 end
