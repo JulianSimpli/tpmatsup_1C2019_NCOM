@@ -27,4 +27,13 @@ fprintf('El resultado será otro numero complejo.\n');
 c=resta(op,a,b)
 clear a b c;
 
+fprintf('Se crean dos numeros complejos y luego se multiplican.\n');
+
+a = NumeroComplejo('-3+5j')
+b= NumeroComplejo('1-2j')
+op=Operaciones;
+fprintf('El resultado será otro numero complejo.\n');
+c=multiplicacion(op,a,b)
+clear a b c;
+
 end

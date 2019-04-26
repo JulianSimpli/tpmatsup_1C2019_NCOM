@@ -24,7 +24,19 @@ classdef Operaciones
         result = NumeroComplejo(str);
        end
         %multiplicacion de numeros complejos
+        function result=multiplicacion(thisoperaciones, numeroComplejo, otroNumeroComplejo)
         
+        firstOp = numeroComplejo.FormBinomica_real * otroNumeroComplejo.FormBinomica_real;
+        secondOp = numeroComplejo.FormBinomica_img * otroNumeroComplejo.FormBinomica_img;
+        real = firstOp - secondOp;
+        
+        firstOp = numeroComplejo.FormBinomica_real * otroNumeroComplejo.FormBinomica_img;
+        secondOp = numeroComplejo.FormBinomica_img * otroNumeroComplejo.FormBinomica_real;
+        img = firstOp + secondOp;
+        
+        str=strcat('(',(num2str(real) ),',', num2str(img), ')');
+        result = NumeroComplejo(str);
+       end
         %cociente o division de numeros complejos
         
         %potencia
