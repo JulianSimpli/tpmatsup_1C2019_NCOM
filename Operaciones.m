@@ -9,23 +9,25 @@ classdef Operaciones
     end
     
     methods
-        %suma de numeros complejos
+
        function result=suma(thisoperaciones, numeroComplejo, otroNumeroComplejo)
+                   %suma de numeros complejos
         real= numeroComplejo.FormBinomica_real + otroNumeroComplejo.FormBinomica_real;
         img = numeroComplejo.FormBinomica_img + otroNumeroComplejo.FormBinomica_img;
         str=strcat('(',(num2str(real) ),',', num2str(img), ')');
         result = NumeroComplejo(str);
        end
-        %resta de numeros complejos
+
         function result=resta(thisoperaciones, numeroComplejo, otroNumeroComplejo)
+                      %resta de numeros complejos
         real= numeroComplejo.FormBinomica_real - otroNumeroComplejo.FormBinomica_real;
         img = numeroComplejo.FormBinomica_img - otroNumeroComplejo.FormBinomica_img;
         str=strcat('(',(num2str(real) ),',', num2str(img), ')');
         result = NumeroComplejo(str);
        end
-        %multiplicacion de numeros complejos
+
         function result=multiplicacion(thisoperaciones, numeroComplejo, otroNumeroComplejo)
-        
+                %multiplicacion de numeros complejos
         firstOp = numeroComplejo.FormBinomica_real * otroNumeroComplejo.FormBinomica_real;
         secondOp = numeroComplejo.FormBinomica_img * otroNumeroComplejo.FormBinomica_img;
         real = firstOp - secondOp;
@@ -36,12 +38,26 @@ classdef Operaciones
         
         str=strcat('(',(num2str(real) ),',', num2str(img), ')');
         result = NumeroComplejo(str);
-       end
-        %cociente o division de numeros complejos
-        
-        %potencia
-        
-        %radicacion numero natural       
+        end
+        function result=division(thisoperaciones, numeroComplejo, otroNumeroComplejo)
+            %cociente o division de numeros complejos, el cociente lo
+            %realiza desde la forma polar
+            modulo = numeroComplejo.FormPolar_ro /  otroNumeroComplejo.FormPolar_ro;
+            angulo = numeroComplejo.FormPolar_fi - otroNumeroComplejo.FormPolar_fi;
+
+            str=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
+            result = NumeroComplejo(str);
+        end
+
+         function result=potencia(thisoperaciones, numeroComplejo, n)
+            %potencia
+            modulo = numeroComplejo.FormPolar_ro ^  n;
+            angulo = numeroComplejo.FormPolar_fi *n;
+
+            str=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
+            result = NumeroComplejo(str);
+         end
+
         
         
     end
