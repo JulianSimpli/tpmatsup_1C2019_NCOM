@@ -57,9 +57,19 @@ classdef Operaciones
             str=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
             result = NumeroComplejo(str);
          end
-
-        
-        
+         
+         function result=raiz (thisoperaciones, numeroComplejo, n)
+            %raiz calculada para k= 3
+            modulo = numeroComplejo.FormPolar_ro ^ (1/n);
+            ang0 = (numeroComplejo.FormPolar_fi)/ n;
+            ang1 = (numeroComplejo.FormPolar_fi + 2 * pi)/ n;
+            ang2 = (numeroComplejo.FormPolar_fi + 2 * 2 * pi)/ n;
+            ang3 = (numeroComplejo.FormPolar_fi + 2 * 3 * pi)/ n;
+            angulos = [ang0' ang1' ang2' ang3']
+            str = strcat('Modulo=',(num2str(modulo)) );
+            result = str;
+                 
+         end
     end
     
 end
