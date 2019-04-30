@@ -133,42 +133,37 @@ function btn_calcular_Callback(hObject, eventdata, handles)
     if (isempty(frecuenciaA) || isempty(frecuenciaB) || isempty(faseA) || isempty(faseB) || isempty(amplitudA) || isempty(amplitudB))
         set(handles.txt_resultado, 'string', 'Completar correctamente los campos');
     else
-        % logica
-        % si tienen frecuencia y tipoFuncion iguales
-        if (strcmp(tipoFuncionA, tipoFuncionB) && frecuenciaA == frecuenciaB)
-            fasorResultanteRe = amplitudA * cos(faseA) + amplitudB * cos(faseB); 
-            fasorResultanteIm = amplitudA * sin(faseA) + amplitudB * sin(faseB);
-            %cosd trabaja en degree, ver si trabajar en radianes
-            %To work in radians, use sin, cos, asin, acos etc.
-            %To work in degrees, use sind, cosd, asind, acosd etc.
-            %To convert from degrees to radians, multiply by pi/180.
-            %To convert from radians to degrees, multiply by 180/pi.
-            fasorResultante = complex(fasorResultanteRe, fasorResultanteIm);
-            set(handles.txt_resultado, 'string', num2str(fasorResultante));
-            nuevoFasor = abs(fasorResultante);
-            nuevoAngulo = angle(fasorResultante);
-        end
-        
-        % si tienen igual frecuencia y distinto tipoFuncion
-        % la funcion seno se pasa a coseno y el resultado queda en coseno
-        if (~(strcmp(tipoFuncionA, tipoFuncionB)) && frecuenciaA == frecuenciaB)
-            if (strcmp(tipoFuncionA, 'sen'))
-                fasorResultanteRe = amplitudA * cos(faseA - pi/2) + amplitudB * cos(faseB); 
-                fasorResultanteIm = amplitudA * sin(faseA - pi/2) + amplitudB * sin(faseB);
-            else
-                fasorResultanteRe = amplitudA * cos(faseA) + amplitudB * cos(faseB - pi/2); 
-                fasorResultanteIm = amplitudA * sin(faseA) + amplitudB * sin(faseB - pi/2);
-            end
-            fasorResultante = complex(fasorResultanteRe, fasorResultanteIm);
-            set(handles.txt_resultado, 'string', num2str(fasorResultante));
-            nuevoFasor = abs(fasorResultante);
-            nuevoAngulo = angle(fasorResultante);
-        end
-        
-        % si tienen distinta frecuencia, out
+         % si tienen distinta frecuencia, out
         if (frecuenciaA ~= frecuenciaB)
              set(handles.txt_resultado, 'string', 'Ingresar frecuencias iguales');
         else
+            % logica
+            % si tienen frecuencia y tipoFuncion iguales
+            if (strcmp(tipoFuncionA, tipoFuncionB) && frecuenciaA == frecuenciaB)
+                fasorResultanteRe = amplitudA * cos(faseA) + amplitudB * cos(faseB); 
+                fasorResultanteIm = amplitudA * sin(faseA) + amplitudB * sin(faseB);
+                %cosd trabaja en degree, ver si trabajar en radianes
+                %To work in radians, use sin, cos, asin, acos etc.
+                %To work in degrees, use sind, cosd, asind, acosd etc.
+                %To convert from degrees to radians, multiply by pi/180.
+                %To convert from radians to degrees, multiply by 180/pi.
+            end
+
+            % si tienen igual frecuencia y distinto tipoFuncion
+            % la funcion seno se pasa a coseno y el resultado queda en coseno
+            if (~(strcmp(tipoFuncionA, tipoFuncionB)) && frecuenciaA == frecuenciaB)
+                if (strcmp(tipoFuncionA, 'sen'))
+                    fasorResultanteRe = amplitudA * cos(faseA - pi/2) + amplitudB * cos(faseB); 
+                    fasorResultanteIm = amplitudA * sin(faseA - pi/2) + amplitudB * sin(faseB);
+                else
+                    fasorResultanteRe = amplitudA * cos(faseA) + amplitudB * cos(faseB - pi/2); 
+                    fasorResultanteIm = amplitudA * sin(faseA) + amplitudB * sin(faseB - pi/2);
+                end
+            end
+            fasorResultante = complex(fasorResultanteRe, fasorResultanteIm);
+            nuevoFasor = abs(fasorResultante);
+            nuevoAngulo = angle(fasorResultante);
+            
             %Impresion de resultado
             if (nuevoAngulo >= 0)
                 set(handles.txt_resultado, 'string', ['= ', num2str(nuevoFasor), ' * ', tipoFuncionA, ' (', num2str(frecuenciaA), 't + ', num2str(nuevoAngulo), ')']);
