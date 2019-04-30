@@ -61,12 +61,12 @@ classdef Operaciones
          function result=raiz (thisoperaciones, numeroComplejo, n)
             %raiz calculada para k= 3
             modulo = numeroComplejo.FormPolar_ro ^ (1/n);
-            ang0 = (numeroComplejo.FormPolar_fi)/ n;
-            ang1 = (numeroComplejo.FormPolar_fi + 2 * pi)/ n;
-            ang2 = (numeroComplejo.FormPolar_fi + 2 * 2 * pi)/ n;
-            ang3 = (numeroComplejo.FormPolar_fi + 2 * 3 * pi)/ n;
-            angulos = [ang0' ang1' ang2' ang3']
-            str = strcat('Modulo=',(num2str(modulo)) );
+            ang(1)= (numeroComplejo.FormPolar_fi)/ n;
+            ang(2) = (numeroComplejo.FormPolar_fi + 2 * pi)/ n;
+            ang(3) = (numeroComplejo.FormPolar_fi + 2 * 2 * pi)/ n;
+            ang(4) = (numeroComplejo.FormPolar_fi + 2 * 3 * pi)/ n;
+            
+            str = strcat('Modulo =  ',(num2str(modulo)), '  Raices = ',(num2str(ang(1))), '; ', (num2str(ang(2))), '; ', (num2str(ang(3))), '; ', (num2str(ang(4))));
             result = str;
                  
          end
