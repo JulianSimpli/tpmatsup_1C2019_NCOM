@@ -57,19 +57,49 @@ classdef Operaciones
             str=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
             result = NumeroComplejo(str);
          end
-         
-         function result=raiz (thisoperaciones, numeroComplejo, n)
-            %raiz calculada para k= 3
-            modulo = numeroComplejo.FormPolar_ro ^ (1/n);
-            ang(1)= (numeroComplejo.FormPolar_fi)/ n;
-            ang(2) = (numeroComplejo.FormPolar_fi + 2 * pi)/ n;
-            ang(3) = (numeroComplejo.FormPolar_fi + 2 * 2 * pi)/ n;
-            ang(4) = (numeroComplejo.FormPolar_fi + 2 * 3 * pi)/ n;
-            
-            str = strcat('Modulo =  ',(num2str(modulo)), '  Raices = ',(num2str(ang(1))), '; ', (num2str(ang(2))), '; ', (num2str(ang(3))), '; ', (num2str(ang(4))));
-            result = str;
-                 
+
+        
+         function result=raiz(thisoperaciones, numeroComplejo, n)
+            %radicacion numero natural       
+            modulo = nthroot(numeroComplejo.FormPolar_ro,  n);
+            k=0;
+            i=1;
+            %result(n)=result;%convierto a result un array de n ceros, asi despues cada elemento dela array lo completo con la raiz
+            while k<n
+                
+            angulo = (numeroComplejo.FormPolar_fi +2*k*pi)/n;
+            str=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
+            result(i)= NumeroComplejo(str);
+            k=k+1;
+            i=i+1;
+            end
+
          end
+         
+         function [result,pri]=raiz_primitiva(thisoperaciones, numeroComplejo, n)
+            %radicacion numero natural   
+            i=1;
+               for k=0:n-1
+                mcd=gcd(n,k);
+                if mcd==1
+                   pri(i)=k;
+                   i=i+1;
+                end
+               end
+            
+            
+               op=Operaciones;
+               res=raiz(op,numeroComplejo,n);
+               cant_pri=size(pri,2);
+               for i=1:cant_pri
+                 raizprim=pri(i);
+                 result(i)=res(raizprim);
+               end
+            end
+
+         
+         
+        
     end
     
 end
