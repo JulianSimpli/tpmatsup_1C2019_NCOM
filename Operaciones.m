@@ -14,16 +14,14 @@ classdef Operaciones
                    %suma de numeros complejos
         real= numeroComplejo.FormBinomica_real + otroNumeroComplejo.FormBinomica_real;
         img = numeroComplejo.FormBinomica_img + otroNumeroComplejo.FormBinomica_img;
-        str=strcat('(',(num2str(real) ),',', num2str(img), ')');
-        result = NumeroComplejo(str);
+        result=strcat('(',(num2str(real) ),',', num2str(img), ')');
        end
 
         function result=resta(thisoperaciones, numeroComplejo, otroNumeroComplejo)
                       %resta de numeros complejos
         real= numeroComplejo.FormBinomica_real - otroNumeroComplejo.FormBinomica_real;
         img = numeroComplejo.FormBinomica_img - otroNumeroComplejo.FormBinomica_img;
-        str=strcat('(',(num2str(real) ),',', num2str(img), ')');
-        result = NumeroComplejo(str);
+        result=strcat('(',(num2str(real) ),',', num2str(img), ')');
        end
 
         function result=multiplicacion(thisoperaciones, numeroComplejo, otroNumeroComplejo)
@@ -36,8 +34,7 @@ classdef Operaciones
         secondOp = numeroComplejo.FormBinomica_img * otroNumeroComplejo.FormBinomica_real;
         img = firstOp + secondOp;
         
-        str=strcat('(',(num2str(real) ),',', num2str(img), ')');
-        result = NumeroComplejo(str);
+        result=strcat('(',(num2str(real) ),',', num2str(img), ')');
         end
         function result=division(thisoperaciones, numeroComplejo, otroNumeroComplejo)
             %cociente o division de numeros complejos, el cociente lo
@@ -45,8 +42,7 @@ classdef Operaciones
             modulo = numeroComplejo.FormPolar_ro /  otroNumeroComplejo.FormPolar_ro;
             angulo = numeroComplejo.FormPolar_fi - otroNumeroComplejo.FormPolar_fi;
 
-            str=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
-            result = NumeroComplejo(str);
+            result=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
         end
 
          function result=potencia(thisoperaciones, numeroComplejo, n)
