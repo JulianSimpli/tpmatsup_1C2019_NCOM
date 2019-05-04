@@ -28,10 +28,15 @@ classdef Operaciones
 
         function result=multiplicacion(thisoperaciones, numeroComplejo, otroNumeroComplejo)
                 %multiplicacion de numeros complejos
-        real = numeroComplejo.FormPolar_ro * otroNumeroComplejo.FormPolar_ro;
-        img = numeroComplejo.FormPolar_fi + otroNumeroComplejo.FormPolar_fi;
-       
-        str=strcat('[',(num2str(real) ),';', num2str(img), ']');
+        modulo = numeroComplejo.FormPolar_ro * otroNumeroComplejo.FormPolar_ro;
+        angulo = numeroComplejo.FormPolar_fi + otroNumeroComplejo.FormPolar_fi;
+        while angulo<0
+               angulo=angulo+2*pi; 
+            end
+        while angulo>2*pi
+               angulo=angulo-2*pi; 
+            end
+        str=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
         result=NumeroComplejo(str);
         end
         function result=division(thisoperaciones, numeroComplejo, otroNumeroComplejo)
@@ -39,7 +44,12 @@ classdef Operaciones
             %realiza desde la forma polar
             modulo = numeroComplejo.FormPolar_ro /  otroNumeroComplejo.FormPolar_ro;
             angulo = numeroComplejo.FormPolar_fi - otroNumeroComplejo.FormPolar_fi;
-
+            while angulo<0
+               angulo=angulo+2*pi; 
+            end
+            while angulo>2*pi
+               angulo=angulo-2*pi; 
+            end
             str=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
             result=NumeroComplejo(str);
         end
