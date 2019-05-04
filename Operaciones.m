@@ -26,15 +26,10 @@ classdef Operaciones
 
         function result=multiplicacion(thisoperaciones, numeroComplejo, otroNumeroComplejo)
                 %multiplicacion de numeros complejos
-        firstOp = numeroComplejo.FormBinomica_real * otroNumeroComplejo.FormBinomica_real;
-        secondOp = numeroComplejo.FormBinomica_img * otroNumeroComplejo.FormBinomica_img;
-        real = firstOp - secondOp;
-        
-        firstOp = numeroComplejo.FormBinomica_real * otroNumeroComplejo.FormBinomica_img;
-        secondOp = numeroComplejo.FormBinomica_img * otroNumeroComplejo.FormBinomica_real;
-        img = firstOp + secondOp;
-        
-        result=strcat('(',(num2str(real) ),',', num2str(img), ')');
+        real = numeroComplejo.FormPolar_ro * otroNumeroComplejo.FormPolar_ro;
+        img = numeroComplejo.FormPolar_fi + otroNumeroComplejo.FormPolar_fi;
+       
+        result=strcat('[',(num2str(real) ),';', num2str(img), ']');
         end
         function result=division(thisoperaciones, numeroComplejo, otroNumeroComplejo)
             %cociente o division de numeros complejos, el cociente lo
