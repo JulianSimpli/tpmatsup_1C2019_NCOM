@@ -131,7 +131,9 @@ function btn_potencia_Callback(hObject, eventdata, handles)
         set(handles.txt_resultado, 'string', 'Ingreso incorrecto');
     else
         op = Operaciones;
-        set(handles.txt_resultado, 'string', potencia(op,a,b));
+        r=potencia(op,a,b);
+        set(handles.txt_resultado, 'string', r.FormPolar_string);
+            set(handles.txt_raices,'string','');
     end
 
 
@@ -149,9 +151,10 @@ function btn_raiz_Callback(hObject, eventdata, handles)
         res = raiz(op,a,b);
         cadena = '';
         for i=1:b
-            cadena = [res(i), ' ', cadena];
+            cadena = [ cadena,' ',res(i).FormPolar_string,];
         end
         set(handles.txt_resultado, 'string', cadena);
+            set(handles.txt_raices,'string','');
     end
 
 
@@ -202,6 +205,25 @@ function btn_raizp_Callback(hObject, eventdata, handles)
 % hObject    handle to btn_raizp (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+   a = NumeroComplejo(get(handles.txt_numeroA,'String'));
+    b = str2num(get(handles.txt_numeroB,'String'));
+    if(a.TipoInicial==0)
+        set(handles.txt_resultado, 'string', 'Ingreso incorrecto');
+    else
+        op = Operaciones;
+        [res,pri] = raiz_primitiva(op,a,b);
+        cadena = '';
+        cadena_pri='';
+        aux=size(res,2);
+        for i=1:aux
+            cadena = [ cadena,' ',res(i).FormPolar_string,];
+            cadena_pri=[cadena_pri,' ',num2str(pri(i))];
+        end
+        set(handles.txt_resultado, 'string', cadena);
+      
+        set(handles.txt_raices, 'string', cadena_pri);
+    end
+
 
 
 
