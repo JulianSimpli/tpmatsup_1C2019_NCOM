@@ -139,7 +139,7 @@ function btn_limpiar_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
     set(handles.txt_numeroA,'string',''); 
     set(handles.txt_numeroB,'string','');
-    set(handles.txt_resultado,'string','') ;
+    set(handles.txt_resultado,'string','');
 
 
 % --- Executes on button press in btn_volver.

@@ -44,14 +44,16 @@ classdef Operaciones
 
             result=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
         end
+        
+        
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
          function result=potencia(thisoperaciones, numeroComplejo, n)
             %potencia
             modulo = numeroComplejo.FormPolar_ro ^  n;
             angulo = numeroComplejo.FormPolar_fi *n;
 
-            str=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
-            result = NumeroComplejo(str);
+            result=strcat('[',(num2str(modulo) ),';', num2str(angulo), ']');
          end
 
         
