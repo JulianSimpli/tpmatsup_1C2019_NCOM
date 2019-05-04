@@ -84,7 +84,8 @@ function btn_suma_Callback(hObject, eventdata, handles)
         set(handles.txt_resultado, 'string', 'Ingreso incorrecto');
     else
         op = Operaciones;
-        set(handles.txt_resultado, 'string', suma(op,a,b));
+        r=suma(op,a,b);
+        set(handles.txt_resultado, 'string', r.FormParOrdenado_string);
     end
 
 % --- Executes on button press in btn_resta.
@@ -98,7 +99,8 @@ function btn_resta_Callback(hObject, eventdata, handles)
         set(handles.txt_resultado, 'string', 'Ingreso incorrecto');
     else
         op = Operaciones;
-        set(handles.txt_resultado, 'string', resta(op,a,b));
+        r=resta(op,a,b);
+        set(handles.txt_resultado, 'string', r.FormParOrdenado_string);
     end
 
 
@@ -113,7 +115,8 @@ function btn_division_Callback(hObject, eventdata, handles)
         set(handles.txt_resultado, 'string', 'Ingreso incorrecto');
     else
         op = Operaciones;
-        set(handles.txt_resultado, 'string', division(op,a,b));
+        r=division(op,a,b);
+        set(handles.txt_resultado, 'string', r.FormPolar_string);
     end
 
 
@@ -128,7 +131,8 @@ function btn_multiplicacion_Callback(hObject, eventdata, handles)
         set(handles.txt_resultado, 'string', 'Ingreso incorrecto');
     else
         op = Operaciones;
-        set(handles.txt_resultado, 'string', multiplicacion(op,a,b));
+        r=multiplicacion(op,a,b);
+        set(handles.txt_resultado, 'string', r.FormPolar_string);
     end
 
 
